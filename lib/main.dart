@@ -16,7 +16,7 @@ class BallPage extends StatelessWidget {
         backgroundColor: Colors.blue,
         appBar: AppBar(
           backgroundColor: Colors.blue.shade900,
-          title: const Text("Magic 8 Ball"),
+          title: const Text("Ask Me Anything"),
         ),
         body: Ball(),
       ),
@@ -32,8 +32,7 @@ class Ball extends StatefulWidget {
 }
 
 class _BallState extends State<Ball> {
-  int index = 1;
-  final Random random = Random();
+  int ballNumber = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +41,11 @@ class _BallState extends State<Ball> {
         child: TextButton(
           onPressed: () {
             setState(() {
-              index = random.nextInt(4) + 1;
+              ballNumber = Random().nextInt(4) + 1;
             });
           },
           child: Image.asset(
-            "../images/ball$index.png",
+            "../images/ball$ballNumber.png",
             width: 250,
             height: 250,
           ),
