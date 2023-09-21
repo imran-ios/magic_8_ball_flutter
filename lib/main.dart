@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const BallPage());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class BallPage extends StatelessWidget {
+  const BallPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +18,20 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue.shade900,
           title: const Text("Magic 8 Ball"),
         ),
-        body: HomePage(),
+        body: Ball(),
       ),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
+class Ball extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _HomePageState();
+    return _BallState();
   }
 }
 
-class _HomePageState extends State<HomePage> {
+class _BallState extends State<Ball> {
   int index = 1;
   final Random random = Random();
 
