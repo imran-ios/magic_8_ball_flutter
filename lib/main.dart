@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+import 'dart:math';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.blue,
+        appBar: AppBar(
+          backgroundColor: Colors.blue.shade900,
+          title: const Text("Magic 8 Ball"),
+        ),
+        body: HomePage(),
+      ),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _HomePageState();
+  }
+}
+
+class _HomePageState extends State<HomePage> {
+  int index = 1;
+  final Random random = Random();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: TextButton(
+          onPressed: () {
+            setState(() {
+              index = random.nextInt(4) + 1;
+            });
+          },
+          child: Image.asset(
+            "../images/ball$index.png",
+            width: 250,
+            height: 250,
+          ),
+        ),
+      ),
+    );
+  }
+}
